@@ -8,10 +8,10 @@
     <button onclick="sendCSRF()">Claim Now</button>
     <script>
         function sendCSRF() {
-            fetch('http://127.0.0.1:5000/update_cart', { // Ensure correct endpoint
+            fetch('http://127.0.0.1:5000/update_cart', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'item=Pepperoni Pizza&quantity=999' // Fix syntax issue
+                body: 'item=Pepperoni%20Pizza&quantity=999' // Fixed encoding issue
             }).then(response => response.text())
               .then(data => console.log("Server Response:", data))
               .catch(error => console.error("Error:", error));
